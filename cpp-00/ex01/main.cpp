@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:54:13 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/18 10:12:30 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/18 16:36:56 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,6 @@
 #include <string.h>
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
-std::string   get_command()
-{
-    std::string str ;
-    std::cout << "ENTER A COMMAND : ";
-    std::getline(std::cin, str);
-    if (str.empty())
-    {
-        std::cout << "Field can't be empty, Please Try Again !!" << std::endl;
-        str = get_command();
-    }
-    else if (str != "ADD" && str != "SEARCH" && str != "EXIT")
-    {
-        std::cout << "Invalid Command try with ADD, SAERCH or EXIT. Please Try Again !!" << std::endl;
-        str = get_command();
-    }
-    return (str);
-}
 
 int main()
 {
@@ -56,12 +39,12 @@ int main()
     
     while (1)
     {
-      str = get_command();
+      str = phonebook.get_command();
       if (str == "ADD")
         phonebook.addUser();
       else if (str == "SEARCH")
         phonebook.searchForUser();
       else
-        std :: cout << "soon" << std::endl;
+       phonebook.exitFunction();
     }
 }
