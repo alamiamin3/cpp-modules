@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:07:25 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/17 21:19:08 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/18 10:10:59 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,31 @@ void Contact::setPhone(std::string input)
 void Contact::setDarkestSecret(std::string input)
 {
     this->darkest_secret = input;
+}
+
+std::string Contact::getFirstName()
+{
+    return (this->first_name);
+}
+
+std::string Contact::getLastName()
+{
+    return (this->last_name);
+}
+
+std::string Contact::getNickName()
+{
+    return (this->nickname);
+}
+
+std::string Contact::getPhone()
+{
+    return (this->phone_number);
+}
+
+std::string Contact::getDarkestSecret()
+{
+    return (this->darkest_secret);
 }
 
 int Contact::isValidPhone(std::string input)

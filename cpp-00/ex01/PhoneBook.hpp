@@ -1,6 +1,8 @@
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
+#include <iomanip>
+#include <string>
 
 class PhoneBook
 {
@@ -11,7 +13,9 @@ public:
     void    addUser();
     void    searchForUser();
     void    exitFunction();
-    static int     isValidPhone(std::string input);
+    std::string getTruncedString(std::string input);
+    static int     isValidNumber(std::string input);
+    long long get_index(std::string input);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:04:28 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/17 22:26:54 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/18 12:26:57 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,28 @@ std::string PhoneBook::get_input(int flag, std::string msg)
         std::cout << "Field can't be empty, Please Try Again !!" << std::endl;
         str = get_input(flag, msg);
     }
-    else if (flag)
+    else if (flag == 1)
     {
-        if (!PhoneBook::isValidPhone(str))
+        if (!PhoneBook::isValidNumber(str))
         {
             std::cout << "Invalid Phone Number, Please Try Again !!" << std::endl;
             str = get_input(flag, msg);
         }
             
     }
+    // else if (flag == 2)
+    // {
+    //     if (!PhoneBook::isValidNumber(str))
+    //     {
+    //         std::cout << "Invalid Index, Please Try Again !!" << std::endl;
+    //         str = get_input(flag, msg);
+    //     }
+    //     else if ()
+    // }
     return (str);
 }
 
-int PhoneBook::isValidPhone(std::string input)
+int PhoneBook::isValidNumber(std::string input)
 {
     int i = 0;
 
@@ -81,12 +90,60 @@ void    PhoneBook::addUser()
 void    PhoneBook::searchForUser()
 {
     int i = 0;
-    while (i < 8 && this->contacts[i].first_name.size())
+    std::string str;
+    std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+    std::cout <<  std::setw(20) << std::right << "Index" ;
+    std::cout << "|";
+    std::cout <<  std::setw(20) << std::right << "First Name" ;
+    std::cout << "|";
+    std::cout <<  std::setw(20) << std::right << "Last Name" ;
+    std::cout << "|";
+    std::cout <<  std::setw(20) << std::right << "Nick Name" << std::endl;
+    while (i < 8 && this->contacts[i].getFirstName().size())
     {
-        std :: cout << " Index [" << i <<"] | " << this->contacts[i].first_name << "| " << this->contacts[i].last_name << std ::endl;
+        std::cout <<  std::setw(20) << std::right << i ;
+        std::cout << "|";
+        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getFirstName());
+        std::cout << "|";
+        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getLastName());
+        std::cout << "|";
+        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getNickName()) << std::endl;
         i++;
     }
     if (i == 0)
-        std::cout << "EMPTY PHONEBOOK ! PLEASE ADD A USER, AND TRY AGAIN" << std::endl;
+        std::cout << std::endl << "EMPTY PHONEBOOK ! PLEASE ADD A USER, AND TRY AGAIN" << std::endl;
+    else
+    {
+        str = PhoneBook::get_input(0, "ENTER THE INNDEX TO GET ALL THE INFORMATIONS :");
+        
+        std :: cout << PhoneBook::get_index(str) << "   num" << std::endl;
+    }
 }
 
+long long PhoneBook::get_index(std::string input)
+{
+    long long index;
+    // int i = 0;
+    // while (input[i])
+    // {
+    //     if (!isdigit(input[i]))
+            
+    // }
+    
+    // while
+    index = std::atoi(input.c_str());
+    return (index);
+}
+
+std::string PhoneBook::getTruncedString(std::string input)
+{
+    std::string new_str;
+    if (input.size() > 10)
+    {
+        new_str = input.substr(0,10);
+        new_str[9] = '.';
+    }
+    else
+        new_str = input;
+    return (new_str);  
+}

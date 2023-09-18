@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 18:54:13 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/17 22:31:19 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/18 10:12:30 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,6 @@ std::string   get_command()
 int main()
 {
     std::string str ;
-      std::cout << std::setw(100);
-  std::cout << 77 << std::endl;
-  return 0;
     PhoneBook phonebook;
     std::cout<<std::endl;
     std::cout<<"/* ************************************************************************** */"<<std::endl;
@@ -67,6 +64,4 @@ int main()
       else
         std :: cout << "soon" << std::endl;
     }
-    
-
 }
