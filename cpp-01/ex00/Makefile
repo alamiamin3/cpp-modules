@@ -1,5 +1,5 @@
-NAME = phonebook
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+NAME = zombie
+SRC = main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -7,7 +7,7 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
-%.o: %.cpp Contact.hpp PhoneBook.hpp
+%.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)

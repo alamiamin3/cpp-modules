@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:07:25 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/18 10:10:59 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/19 18:06:24 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,19 +60,6 @@ std::string Contact::getPhone()
 std::string Contact::getDarkestSecret()
 {
     return (this->darkest_secret);
-}
-
-int Contact::isValidPhone(std::string input)
-{
-    int i = 0;
-
-    while (input[i])
-    {
-        if (!isdigit(input[i]))
-            return (0);
-        i++;
-    }
-    return(1);
 }
 
 Contact::Contact()

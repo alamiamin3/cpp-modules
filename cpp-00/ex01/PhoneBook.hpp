@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/19 18:19:52 by aalami            #+#    #+#             */
+/*   Updated: 2023/09/19 18:19:57 by aalami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
 #include "Contact.hpp"
@@ -14,7 +26,6 @@ public:
     std::string getTruncedString(std::string input);
     std::string   get_command();
     std::string trim_input(std::string str);
-    std::string formatSubString(std::string str);
     void    addUser();
     void    searchForUser();
     void    exitFunction();

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:04:28 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/18 19:20:55 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/19 17:37:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ std::string PhoneBook::get_input(int flag, std::string msg)
     std :: cout << msg;
     std::string str;
     std::getline(std::cin, str);
+    if (!std::cin)
+        exit (0);
     str = PhoneBook::trim_input(str);
     if (str.empty())
     {
@@ -109,25 +111,25 @@ void    PhoneBook::searchForUser()
     int i = 0;
     std::string str;
     std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
-    std::cout <<  std::setw(20) << std::right << "Index" ;
-    std::cout << "|";
-    std::cout <<  std::setw(20) << std::right << "First Name" ;
-    std::cout << "|";
-    std::cout <<  std::setw(20) << std::right << "Last Name" ;
-    std::cout << "|";
-    std::cout <<  std::setw(20) << std::right << "Nick Name";
-    std::cout << "|" << std::endl;
+    std::cout <<  std::setw(10) << std::right << "Index" ;
+    std::cout << "| ";
+    std::cout <<  std::setw(10) << std::right << "First Name" ;
+    std::cout << "| ";
+    std::cout <<  std::setw(10) << std::right << "Last Name" ;
+    std::cout << "| ";
+    std::cout <<  std::setw(10) << std::right << "Nick Name";
+    std::cout << "| " << std::endl;
     std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
     while (i < 8 && this->contacts[i].getFirstName().size())
     {
-        std::cout <<  std::setw(20) << std::right << i ;
-        std::cout << "|";
-        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getFirstName());
-        std::cout << "|";
-        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getLastName());
-        std::cout << "|";
-        std::cout <<  std::setw(20) << std::right << getTruncedString(this->contacts[i].getNickName());
-        std::cout << "|" << std::endl;
+        std::cout <<  std::setw(10) << std::right << i ;
+        std::cout << "| ";
+        std::cout <<  std::setw(10) << std::right << getTruncedString(this->contacts[i].getFirstName());
+        std::cout << "| ";
+        std::cout <<  std::setw(10) << std::right << getTruncedString(this->contacts[i].getLastName());
+        std::cout << "| ";
+        std::cout <<  std::setw(10) << std::right << getTruncedString(this->contacts[i].getNickName());
+        std::cout << "| " << std::endl;
         i++;
     }
     if (i == 0)
@@ -135,20 +137,20 @@ void    PhoneBook::searchForUser()
     else
     {
         std::cout << std::endl;
-        str = PhoneBook::get_input(2, "ENTER THE INNDEX TO GET ALL THE INFORMATIONS :");
+        str = PhoneBook::get_input(2, "ENTER THE INDEX TO GET ALL THE INFORMATIONS :");
         if (this->contacts[this->index].getFirstName().size() != 0)
         {
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
             std::cout << "First Name : " << this->contacts[this->index].getFirstName() << std :: endl;
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
             std::cout << "Last Name : " << this->contacts[this->index].getLastName() << std :: endl;
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
             std::cout << "Nick Name : " << this->contacts[this->index].getNickName() << std :: endl;
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
             std::cout << "Phone Number : " << this->contacts[this->index].getPhone() << std :: endl;
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
             std::cout << "Darkest Secret : " << this->contacts[this->index].getDarkestSecret() << std :: endl;
-            std::cout << "-----------------------------------------------------------------------------------------------" << std::endl;
+            std::cout << std::endl;
         }
         else
             std::cout << std::endl << "THERE IS NO CONTACT ASSOCIATED TO THIS INDEX"<< std::endl << std::endl;
@@ -159,7 +161,6 @@ void    PhoneBook::exitFunction()
 {
     std::cout << std::endl << "SEE YOU NEXT TIME ;)"<< std::endl << std::endl;
     exit (0);
-    
 }
 
 int PhoneBook::get_index(std::string input)
@@ -169,24 +170,6 @@ int PhoneBook::get_index(std::string input)
     return (index);
 }
 
-std::string PhoneBook::formatSubString(std::string str)
-{
-    int i = 0;
-    std::cout << str << "   NOT FORMATED" << std::endl;
-    std::string new_str;
-    while(str[i] != '\0')
-    {
-        // if (str[i] == '\t')
-        //     new_str[i] = ' ';
-        // else
-            new_str[i] = str[i];
-    std::cout << new_str[i] << std::endl;
-        i++;
-    }
-    std::cout << new_str << "FORMATED" << std::endl;
-    exit(0);
-    return (new_str);
-}
 std::string PhoneBook::getTruncedString(std::string input)
 {
     std::string new_str;
@@ -197,7 +180,6 @@ std::string PhoneBook::getTruncedString(std::string input)
     }
     else
         new_str = input;
-    // new_str = formatSubString(new_str);
     return (new_str);  
 }
 
@@ -228,8 +210,11 @@ std::string   PhoneBook::get_command()
     str = PhoneBook::trim_input(str);
     if (str.empty())
     {
+        if (!std::cin)
+            exit (0);
         std::cout << "Field can't be empty, Please Try Again !!" << std::endl;
         str = get_command();
+        
     }
     else if (str != "ADD" && str!= "SEARCH" && str != "EXIT")
     {
