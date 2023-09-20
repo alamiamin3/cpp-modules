@@ -12,19 +12,14 @@
 
 #include <iostream>
 
-char    upper_case(char c)
-{
-    return (c - 32);
-}
-
-void    print_upper_arg(char *str)
+void    print_upper_arg(std::string str)
 {
     int i = 0;
 
     while (str[i])
     {
-        if (str[i] >= 'a' && str[i] <= 'z')
-            std::cout<<upper_case(str[i]);
+        if (islower(str[i]))
+            std::cout<<(char)toupper(str[i]);
         else
             std::cout<<str[i];
         i++;
