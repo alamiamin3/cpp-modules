@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:11:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 14:00:22 by aalami           ###   ########.fr       */
+/*   Created: 2023/09/21 18:14:33 by aalami            #+#    #+#             */
+/*   Updated: 2023/09/21 21:15:25 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-void    a()
+void    HumanB::setWeapon(Weapon& weapon)
 {
-    system("leaks zombie");
+    this->weapon = &weapon;
 }
-int main()
-{
-    // atexit(a);
-    int a = 100;
-    Zombie  *ff;
-    ff = zombieHorde( a, "zombie:uuu");
 
-    int i = 0;
-    while (i < a)
-    {
-        std::cout<<"zombie number " << i + 1 << " ";
-        ff[i].announce();
-        i++;
-    }
-    delete[] ff;
+void    HumanB::attack()
+{
+    std::cout << this->name<<" attacks with their "<<this->weapon->getType()<<std::endl;
+}
+
+HumanB::HumanB(const std::string& name)
+{
+    this->name = name;
 }

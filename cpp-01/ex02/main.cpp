@@ -5,30 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:11:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 14:00:22 by aalami           ###   ########.fr       */
+/*   Created: 2023/09/21 14:04:49 by aalami            #+#    #+#             */
+/*   Updated: 2023/09/21 14:13:56 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-void    a()
-{
-    system("leaks zombie");
-}
 int main()
 {
-    // atexit(a);
-    int a = 100;
-    Zombie  *ff;
-    ff = zombieHorde( a, "zombie:uuu");
+    std::string str;
+    str = "HI THIS IS BRAIN";
+    std::string& stringREF = str;
+    std::string *stringPTR = &str;
 
-    int i = 0;
-    while (i < a)
-    {
-        std::cout<<"zombie number " << i + 1 << " ";
-        ff[i].announce();
-        i++;
-    }
-    delete[] ff;
+    std::cout<<&str<<std::endl;
+    std::cout<<stringPTR<<std::endl;
+    std::cout<<&stringREF<<std::endl;
+    
+    std::cout<<str<<std::endl;
+    std::cout<<*stringPTR<<std::endl;
+    std::cout<<stringREF<<std::endl;
 }

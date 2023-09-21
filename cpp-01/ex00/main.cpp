@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:19:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/19 22:11:06 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/21 12:20:25 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void    a()
 }
 int main()
 {
-    atexit(a);
+    // atexit(a);
     randomChump("a");
     randomChump("b");
     randomChump("c");

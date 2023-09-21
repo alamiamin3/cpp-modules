@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:11:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 14:00:22 by aalami           ###   ########.fr       */
+/*   Created: 2023/09/21 17:52:47 by aalami            #+#    #+#             */
+/*   Updated: 2023/09/21 18:55:55 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON_HPP
+#define WEAPON_HPP
 
-void    a()
+#include <iostream>
+class Weapon
 {
-    system("leaks zombie");
-}
-int main()
-{
-    // atexit(a);
-    int a = 100;
-    Zombie  *ff;
-    ff = zombieHorde( a, "zombie:uuu");
+private:
+   std::string type;
+public:
+    const std::string&    getType();
+    void    setType(const std::string& type);
+    Weapon();
+    Weapon(const std::string& type);
+    // ~Weapon();
+};
 
-    int i = 0;
-    while (i < a)
-    {
-        std::cout<<"zombie number " << i + 1 << " ";
-        ff[i].announce();
-        i++;
-    }
-    delete[] ff;
-}
+
+#endif
