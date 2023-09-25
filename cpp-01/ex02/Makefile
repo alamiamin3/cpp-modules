@@ -1,6 +1,6 @@
 NAME = this_is_brain
 SRC = main.cpp
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 OBJ = $(SRC:.cpp=.o)
