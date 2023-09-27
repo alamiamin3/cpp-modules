@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 00:55:08 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/27 01:30:59 by aalami           ###   ########.fr       */
+/*   Updated: 2023/09/27 19:02:13 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    Harl::info(void)
 
 void    Harl::warning(void)
 {
-    std::cout<<"I think I deserve to have some extra bacon for free. I've been coming for years whereas you started working here since last month."<<std::endl;
+    std::cout<<"I think I deserve to have some extra bacon for free."<<std::endl<<"I've been coming for years whereas you started working here since last month."<<std::endl;
 }
 
 void    Harl::error(void)
@@ -34,7 +34,11 @@ void    Harl::error(void)
 
 void    Harl::complain(std::string level)
 {
-    level="l";
-    void (Harl::* ptfptr) (void) = &Harl::debug;
-    (this->*ptfptr)();
+    void (Harl::* ptr[]) (void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    int i = 0;
+    while(i < 4 && levels[i].compare(level))
+        i++;
+    if (i < 4)
+        (this->*ptr[i])();
 }
