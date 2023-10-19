@@ -5,30 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:52:23 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/19 16:41:48 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/18 17:10:35 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/18 17:26:05 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
-
-    Weapon club1 = Weapon("m44");
-    HumanB jim("Jim");
-    jim.setWeapon(club1);
-    jim.attack();
-    club1.setType("r44");
-    jim.attack();
-
-return 0;
+    ScavTrap a("scav");
+    FragTrap b("frag");
+    a.attack("frag");
+    b.takeDamage(10);
+    b.attack("scav");
+    b.attack("scav");
+    b.attack("scav");
+    a.beRepaired(20);
+    b.highFivesGuys();
 }

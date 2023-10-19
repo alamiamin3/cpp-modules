@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:52:23 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/19 16:41:48 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/18 11:42:10 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/18 15:08:47 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+#include "ClapTrap.hpp"
 
-int main()
+class ScavTrap : public ClapTrap
 {
+private:
+    /* data */
+public:
+    ScavTrap(std::string name);
+    ScavTrap();
+    ScavTrap(const ScavTrap &obj);
+    ScavTrap &operator=(const ScavTrap &obj);
+    ~ScavTrap();
+    void attack(const std::string& target);
+    void guardGate();
+};
 
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
 
-    Weapon club1 = Weapon("m44");
-    HumanB jim("Jim");
-    jim.setWeapon(club1);
-    jim.attack();
-    club1.setType("r44");
-    jim.attack();
-
-return 0;
-}
+#endif

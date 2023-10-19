@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 02:37:19 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/16 04:43:42 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/16 17:40:49 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,24 @@ public:
     int getRawBits( void ) const;
     void setRawBits( int const raw );
     Fixed &operator=(const Fixed &old);
+    static const Fixed &min(const Fixed &a, const Fixed &b);
+    static Fixed &min(Fixed &a, Fixed &b);
+    static const Fixed &max(const Fixed &a, const Fixed &b);
+    static Fixed &max(Fixed &a, Fixed &b);
     bool operator>(const Fixed &a);
     bool operator<(const Fixed &a);
     bool operator>=(const Fixed &a);
     bool operator<=(const Fixed &a);
     bool operator==(const Fixed &a);
     bool operator!=(const Fixed &a);
-    Fixed operator++(void);
+    Fixed &operator++(void);
     Fixed operator++(int);
-    Fixed operator*(const Fixed &a);
+    Fixed &operator--(void);
+    Fixed operator--(int);
+    float operator*(const Fixed &a);
+    float operator+(const Fixed &a);
+    float operator-(const Fixed &a);
+    float operator/(const Fixed &a);
     // Fixed operator+(const Fixed &a);
     // Fixed operator-(const Fixed &a);
     // Fixed operator/(const Fixed &a);

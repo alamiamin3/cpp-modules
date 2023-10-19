@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:52:23 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/19 16:41:48 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/18 16:50:44 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/18 17:22:52 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+#include "ClapTrap.hpp"
 
-int main()
+class FragTrap : public ClapTrap
 {
 
-    Weapon club = Weapon("crude spiked club");
-    HumanA bob("Bob", club);
-    bob.attack();
-    club.setType("some other type of club");
-    bob.attack();
-
-    Weapon club1 = Weapon("m44");
-    HumanB jim("Jim");
-    jim.setWeapon(club1);
-    jim.attack();
-    club1.setType("r44");
-    jim.attack();
-
-return 0;
-}
+public:
+    FragTrap();
+    FragTrap(const std::string &name);
+    FragTrap(const FragTrap &obj);
+    FragTrap &operator=(const FragTrap &obj);
+    ~FragTrap();
+    void highFivesGuys(void);
+    void attack(const std::string &target);
+};
+#endif
