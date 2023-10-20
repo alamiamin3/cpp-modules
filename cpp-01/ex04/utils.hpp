@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   randomChump.cpp                                    :+:      :+:    :+:   */
+/*   utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 21:36:42 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/20 17:33:56 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/20 15:51:38 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/20 16:05:59 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef UTILS_HPP
+#define UTILS_HPP
+#include <iostream>
+#include <fstream>
 
-void randomChump( std::string name )
-{
-    Zombie  *foo = NULL;
-    
-    foo = newZombie(name);
-    if (foo)
-        foo->announce();
-        delete(foo);
-}
+std::string    getOutFileName(std::string arg);
+int copyContent(std::string fn, std::string s1, std::string s2);
+std::string replaceOccurence(std::string &line, std::string s1, std::string s2);
+int     getOccurenceNumber(std::string& line, std::string s1);
+std::string    getOutFileName(std::string arg);
+#endif

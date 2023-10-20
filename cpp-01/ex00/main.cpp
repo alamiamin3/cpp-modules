@@ -6,20 +6,14 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:19:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 12:20:25 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/20 18:01:31 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-#include <stdlib.h>
 
-void    a()
-{
-    system("leaks zombie");
-}
 int main()
 {
-    // atexit(a);
     randomChump("a");
     randomChump("b");
     randomChump("c");

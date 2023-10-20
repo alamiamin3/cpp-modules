@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:52:23 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/19 16:41:48 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/20 19:14:29 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,19 @@ int main()
     jim.attack();
     club1.setType("r44");
     jim.attack();
+    
+    // Weapon *club2 = &club1;
+    // HumanB ss("ss");
+    // jim.setWeapon(*club2);
+    // jim.attack();
+    // club2->setType("yy");
+    // jim.attack();
+    
+    // Weapon *club3 = &club;
+    // HumanA ff("ff", *club3);
+    // ff.attack();
+    // club3->setType("fizz");
+    // ff.attack();
 
 return 0;
 }

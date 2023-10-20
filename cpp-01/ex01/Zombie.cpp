@@ -6,20 +6,12 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:14:18 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 13:53:26 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/20 17:34:42 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// Zombie::Zombie() : name("")
-// {
-    
-// }
-// Zombie::Zombie(std::string& name) : name(name)
-// {
-    
-// }
 Zombie::~Zombie()
 {
     std::cout<<"this is my name : " << this->name<<std::endl;

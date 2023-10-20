@@ -1,5 +1,5 @@
 NAME = Sed_is_for_losers
-SRC = main.cpp
+SRC = main.cpp utils.cpp
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -7,7 +7,7 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
-%.o: %.cpp  HumanA.hpp HumanB.hpp Weapon.hpp
+%.o: %.cpp  utils.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)

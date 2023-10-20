@@ -6,24 +6,21 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:11:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/21 14:00:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/20 18:01:46 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-void    a()
-{
-    system("leaks zombie");
-}
+
 int main()
 {
-    // atexit(a);
-    int a = 100;
+    int a = 10;
     Zombie  *ff;
     ff = zombieHorde( a, "zombie:uuu");
-
     int i = 0;
+    if (!ff)
+        return (1);
     while (i < a)
     {
         std::cout<<"zombie number " << i + 1 << " ";
