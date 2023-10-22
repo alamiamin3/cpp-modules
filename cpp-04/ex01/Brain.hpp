@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:12:34 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 14:22:37 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/21 12:49:19 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/21 16:37:57 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 #include <iostream>
 
-class Zombie
+class Brain
 {
-private:
-    std::string name;
-public:
-    void    announce();
-    void    setName(std::string name);
-    Zombie();
-    ~Zombie();
+    private:
+        std::string arr[100];
+    public:
+        Brain();
+        Brain(const Brain &obj);
+        Brain &operator=(const Brain &obj);
+        ~Brain();
 };
-Zombie* zombieHorde( int N, std::string name );
 #endif

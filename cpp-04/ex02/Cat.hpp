@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:12:34 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 14:22:37 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/22 15:06:33 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/22 15:06:35 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef CAT_HPP
+#define CAT_HPP
+#include "Animal.hpp"
+#include "Brain.hpp"
 
-#include <iostream>
-
-class Zombie
+class Cat : public Animal
 {
-private:
-    std::string name;
-public:
-    void    announce();
-    void    setName(std::string name);
-    Zombie();
-    ~Zombie();
+    private:
+        Brain *brain;
+    public:
+        Cat();
+        Cat(const Cat &obj);
+        Cat &operator=(const Cat &obj);
+         ~Cat();
+        void makeSound() const;
+        const std::string &getType() const;
 };
-Zombie* zombieHorde( int N, std::string name );
+
 #endif

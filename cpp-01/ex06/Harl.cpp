@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 16:06:24 by aalami            #+#    #+#             */
-/*   Updated: 2023/09/27 16:42:30 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/22 14:31:56 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,22 +49,12 @@ void    Harl::complain(std::string level)
         {
         case ('D'):
             this->debug();
-            this->info();
-            this->warning();
-            this->error();
-            break;
         case ('I'):
             this->info();
-            this->warning();
-            this->error();
-            break;
         case ('W'):
             this->warning();
-            this->error();
-            break;
         case ('E'):
             this->error();
-            break;
         default:
             break;
         }

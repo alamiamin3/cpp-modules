@@ -6,18 +6,22 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 22:11:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/20 18:01:46 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/22 18:40:49 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-
+void   a()
+{
+    system("leaks zombie");
+}
 int main()
 {
-    int a = 10;
+    atexit(a);
+    int a = 0;
     Zombie  *ff;
-    ff = zombieHorde( a, "zombie:uuu");
+    ff = zombieHorde( a, "foo");
     int i = 0;
     if (!ff)
         return (1);

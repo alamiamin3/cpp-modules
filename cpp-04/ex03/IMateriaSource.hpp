@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:12:34 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 14:22:37 by aalami           ###   ########.fr       */
+/*   Created: 2023/10/22 23:57:44 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/22 23:59:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#ifndef IMATERIASOURCE_HPP
+#define IMATERIASOURCE_HPP
+#include "AMateria.hpp"
 
-#include <iostream>
-
-class Zombie
+class IMateriaSource
 {
-private:
-    std::string name;
-public:
-    void    announce();
-    void    setName(std::string name);
-    Zombie();
-    ~Zombie();
+    public:
+    virtual ~IMateriaSource() {}
+    virtual void learnMateria(AMateria*) = 0;
+    virtual AMateria* createMateria(std::string const & type) = 0;
 };
-Zombie* zombieHorde( int N, std::string name );
 #endif

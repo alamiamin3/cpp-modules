@@ -1,0 +1,49 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/22 19:28:00 by aalami            #+#    #+#             */
+/*   Updated: 2023/10/22 21:48:08 by aalami           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Cure.hpp"
+
+Cure::Cure()
+{
+    std::cout<<"Cure constructor called"<<std::endl;
+}
+Cure::~Cure()
+{
+    std::cout<<"Cure destructor called"<<std::endl;
+}
+
+Cure::Cure(const std::string &name)
+{
+    type = name;   
+}
+
+Cure::Cure(const Cure &obj)
+{
+      type = obj.type;
+}
+
+Cure &Cure::operator=(const Cure &obj)
+{
+      type = obj.type;
+      return (*this);
+}
+
+AMateria* Cure::clone() const
+{
+    AMateria *ptr = new Cure("cure");
+    return ptr;
+}
+
+void Cure::use(ICharacter &target)
+{
+    std::cout<<"* heals " << target.getName()<<"'s wounds *"<<std::endl;
+}
