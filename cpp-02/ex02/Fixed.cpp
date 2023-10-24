@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 02:38:04 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/16 17:44:40 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/23 16:37:25 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ Fixed::Fixed(const int num)
 }
 Fixed::Fixed(const float n)
 {
-    
-    this->value = roundf(n * (1 << this->fraction));
+    this->value = static_cast<int>(roundf(n * (1 << this->fraction)));
 }
 Fixed::~Fixed()
 {
-    std::cout<<"Destructor called"<<std::endl;
+    
 }
 Fixed::Fixed(const Fixed &old)
 {
@@ -64,39 +63,39 @@ std::ostream &operator<<(std::ostream &cout, const Fixed &obj)
     cout <<obj.toFloat();
     return (cout);
 }
-bool Fixed::operator>(const Fixed &b)
+bool Fixed::operator>(const Fixed &b) const 
 {
     if (this->toFloat() > b.toFloat())
         return(true);
     return (false);
 }
-bool Fixed::operator<(const Fixed &b)
+bool Fixed::operator<(const Fixed &b) const
 {
     if (this->toFloat() < b.toFloat())
         return(true);
     return (false);
 }
 
-bool Fixed::operator>=(const Fixed &b)
+bool Fixed::operator>=(const Fixed &b) const
 {
     if (this->toFloat() >= b.toFloat())
         return(true);
     return (false);
 }
-bool Fixed::operator<=(const Fixed &b)
+bool Fixed::operator<=(const Fixed &b) const
 {
     if (this->toFloat() <= b.toFloat())
         return(true);
     return (false);
 }
-bool Fixed::operator==(const Fixed &b)
+bool Fixed::operator==(const Fixed &b) const
 {
     if (this->toFloat() == b.toFloat())
         return(true);
     return (false);
 }
 
-bool Fixed::operator!=(const Fixed &b)
+bool Fixed::operator!=(const Fixed &b) const
 {
     if (this->toFloat() != b.toFloat())
         return(true);
@@ -124,19 +123,19 @@ Fixed Fixed::operator--(int) //b--
     --this->value;
     return (temp);
 }
-float Fixed::operator*(const Fixed &a)
+float Fixed::operator*(const Fixed &a) const
 {
     return (this->toFloat() * a.toFloat());
 }
-float Fixed::operator+(const Fixed &a)
+float Fixed::operator+(const Fixed &a) const
 {
     return (this->toFloat() + a.toFloat());
 }
-float Fixed::operator-(const Fixed &a)
+float Fixed::operator-(const Fixed &a) const
 {
     return (this->toFloat() - a.toFloat());
 }
-float Fixed::operator/(const Fixed &a)
+float Fixed::operator/(const Fixed &a) const
 {
     return (this->toFloat() / a.toFloat());
 }

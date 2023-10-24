@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 21:52:59 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 23:56:11 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:31:55 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,47 @@
 
 Character::Character()
 {
-    
 }
 Character::Character(const std::string &name) : name(name)
 {
+    // save = new AMateria*;
+    // save_index = 0;
     for(int i = 0; i <  4; i++)
         slot[i] = NULL;
 }
 Character::~Character()
 {
+    for(int i = 0; i < 4; i++)
+    {
+        if (slot[i] != NULL)
+            delete slot[i];
+    }
     
+        // for (int i = 0; i < save_index; i++)
+        //     delete save[i];
+        // delete [] save;
+        
 }
 Character::Character(const Character &obj)
 {
-    for(int i = 0; i < 4; i++)
-    {
-        if (slot[i] != NULL)
-            delete slot[i];
-    }
-    for(int i = 0; i < 4; i++)
-        slot[i] = obj.slot[i]->clone();
-    name = obj.name;
+    *this = obj;
 }
 Character &Character::operator=(const Character &obj)
 {
+    if (this == &obj)
+        return (*this);
     for(int i = 0; i < 4; i++)
     {
         if (slot[i] != NULL)
             delete slot[i];
     }
     for(int i = 0; i < 4; i++)
-        slot[i] = obj.slot[i]->clone();
+    {
+        if (obj.slot[i])
+            slot[i] = obj.slot[i]->clone();
+        else
+            slot[i] = NULL;
+    }
     name = obj.name;
     return (*this);
 }
@@ -64,11 +74,38 @@ void Character::equip(AMateria* m)
 }
 void Character::unequip(int idx)
 {
+    static int i;
+    // AMateria *tmp[i+1];
     if (idx >= 0 && idx < 4 && slot[idx])
-            slot[idx] = NULL;
+    {
+        // if (i == 0)
+        //     *save = slot[idx];
+        // else
+        // {
+        //     for(int j = 0; j < i; j++)
+        //         tmp[j] = save[j];
+        //     for(int j = 0; j < i; j++)
+        //         delete save[j];
+        //     save = new AMateria*[i + 1];
+        //     delete [] save;
+        //     for(int j = 0; j < i; j++)
+        //         save[j] = tmp[j];
+        //     save[i + 1] = slot[idx];
+        //     save_index = i + 1;
+        //     // printf("dd\n");
+        // }
+        slot[idx] = NULL;
+        i++;
+    }
 }
 void Character::use(int idx, ICharacter &target)
 {
-    if (slot[idx])
+
+    if (idx >= 0 && idx < 4 && slot[idx])
         slot[idx]->use(target);
 }
+std::string const &Character::getName() const
+{
+    return (name);
+}
+

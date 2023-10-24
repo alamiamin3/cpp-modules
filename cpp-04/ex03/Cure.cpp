@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:28:00 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 21:48:08 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 09:20:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 Cure::Cure()
 {
-    std::cout<<"Cure constructor called"<<std::endl;
+    type = "cure";
+    // std::cout<<"Cure constructor called"<<std::endl;
 }
 Cure::~Cure()
 {
-    std::cout<<"Cure destructor called"<<std::endl;
+    // std::cout<<"Cure destructor called"<<std::endl;
 }
 
 Cure::Cure(const std::string &name)

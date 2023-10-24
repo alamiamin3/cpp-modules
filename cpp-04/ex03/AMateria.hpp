@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:12:36 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 21:40:41 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 11:43:09 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 #define AMATERIA_HPP
 #include <iostream>
 #include "ICharacter.hpp"
-#include "Ice.hpp"
+// #include "Ice.hpp"
 
+class ICharacter;
 class AMateria
 {
     protected:
@@ -30,4 +31,5 @@ class AMateria
         virtual void use(ICharacter& target);
         virtual ~AMateria();
 };
+
 #endif

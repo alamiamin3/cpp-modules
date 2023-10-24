@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 01:01:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/16 04:12:38 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/23 17:27:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main( void ) {
 Fixed a;
-Fixed const b( 10 );
+Fixed const b( 10);
 Fixed const c( 42.42f );
 Fixed const d( b );
 a = Fixed( 1234.4321f ); 

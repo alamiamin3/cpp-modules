@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:42:51 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 19:26:14 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:42:25 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 Ice::Ice()
 {
-    std::cout<<"Ice constructor called"<<std::endl;
+    type = "ice";
+    // std::cout<<"Ice constructor called"<<std::endl;
 }
 Ice::~Ice()
 {
-    std::cout<<"Ice destructor called"<<std::endl;
+    // std::cout<<"Ice destructor called"<<std::endl;
 }
 
 Ice::Ice(const std::string &name)
 {
-    type = name;   
+    type = name;
 }
 
 Ice::Ice(const Ice &obj)

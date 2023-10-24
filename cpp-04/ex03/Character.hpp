@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 21:48:54 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 22:28:27 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 17:31:46 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ class Character : public ICharacter
 {
     private:
         AMateria *slot[4];
+        // AMateria **save;
+        // int save_index;
         std::string name;
     public:
     Character();

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 01:00:40 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/16 04:03:48 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/23 16:36:45 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Fixed::Fixed(const int num)
 Fixed::Fixed(const float n)
 {
     
-    this->value = roundf(n * (1 << this->fraction));
+    this->value = static_cast<int>(roundf(n * (1 << this->fraction)));
     std::cout<<"Float constructor called" << std::endl;
 }
 Fixed::~Fixed()
@@ -59,7 +59,7 @@ void Fixed::setRawBits(int const raw)
 
 Fixed& Fixed::operator=(const Fixed &old)
 {
-    std::cout<<"Copy assignment operator called"<<std::endl;
+    std::cout<<"Copy assignment operator called"<< std::endl;
     this->value = old.getRawBits();
     return(*this);
 }

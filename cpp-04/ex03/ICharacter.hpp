@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 17:35:04 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 17:37:47 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/24 10:55:05 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include "AMateria.hpp"
 
+class AMateria;
 class ICharacter
 {
     public:

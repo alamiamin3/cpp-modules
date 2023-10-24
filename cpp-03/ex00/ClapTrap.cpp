@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:03:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/18 15:04:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/23 20:49:22 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap()
 {
     std::cout<<"Constructor called"<< std::endl;
 }
-ClapTrap::ClapTrap(const ClapTrap &obj)
+ClapTrap::ClapTrap(const ClapTrap& obj)
 {
     std::cout<<"Copy Constructor called"<< std::endl;
     this->name = obj.name;
