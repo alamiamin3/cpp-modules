@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:03:55 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/23 20:49:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:28:40 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,7 @@ ClapTrap::ClapTrap()
 ClapTrap::ClapTrap(const ClapTrap& obj)
 {
     std::cout<<"Copy Constructor called"<< std::endl;
-    this->name = obj.name;
-    this->hit_points = obj.hit_points;
-    this->energy_points = obj.energy_points;
-    this->attack_damage = obj.attack_damage;
+    *this = obj;
 }
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
@@ -49,7 +46,6 @@ void    ClapTrap::attack(const std::string &target)
     if (hit_points != 0 && energy_points != 0)
     {
         std::cout<<"Clap Trap "<<name<<" attacks "<< target <<", causing "<< attack_damage<< " points of damage"<<std::endl;
-        // energy_points --;
         if (--energy_points == 0)
             energy_points = 0;
     }

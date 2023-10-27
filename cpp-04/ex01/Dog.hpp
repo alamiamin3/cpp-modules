@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:48:20 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/21 13:19:30 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/27 15:19:22 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ class Dog : public Animal
         ~Dog();
         void makeSound() const;
         const std::string &getType() const;
+        Brain* getbrain()
+        {
+            return (brain);
+        }
         
 };
 #endif

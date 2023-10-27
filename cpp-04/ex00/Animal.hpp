@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 09:58:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/19 15:43:50 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/27 16:15:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ class Animal
         virtual ~Animal();
         virtual void makeSound() const;
         virtual  const std::string &getType() const;
-        
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 15:06:40 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/22 15:06:43 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/27 14:47:22 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,18 @@ Dog::Dog()
 
 Dog::Dog(const Dog &obj)
 {
-    Brain *newbrain = new Brain();
     std::cout<< "Dog Copy Constructor Called"<< std::endl;
+    Brain *newbrain = new Brain(); 
     type = obj.type;
     *newbrain = *obj.brain;
     brain = newbrain;
 }
 Dog &Dog::operator=(const Dog &obj)
 {
+    Brain *newbrain = new Brain(); 
     type = obj.type;
+    *newbrain = *obj.brain;
+    brain = newbrain;
     return(*this);
 }
 void Dog::makeSound() const

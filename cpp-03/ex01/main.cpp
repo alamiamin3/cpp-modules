@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:16:08 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/23 21:14:07 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/27 18:44:30 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 
 int main()
 {
+    // ClapTrap *a = new ScavTrap("bob");
+    ScavTrap *ptr = new ScavTrap("foo");
     ScavTrap obj("bob");
-    // ScavTrap b(obj);
-    // ScavTrap a("jim");
-    // b = a;
-    obj.attack("Jim");
-    obj.takeDamage(100);
-    obj.attack("Jim");
-    obj.beRepaired(20);
-    obj.guardGate();
-    obj.attack("Jim");
-    obj.takeDamage(100);
-    obj.attack("Jim");
-    obj.beRepaired(20);
-    obj.guardGate();
+    ScavTrap b(obj);
+    ScavTrap a("jim");
+
+    ptr->attack("bob");
+    delete ptr;
+    b = a;
+    a.attack("Jim");
+    a.takeDamage(100);
+    a.attack("Jim");
+    a.beRepaired(20);
+    a.attack("Jim");
+    a.takeDamage(100);
+    a.attack("Jim");
+    a.beRepaired(20);
+    a.guardGate();
 }

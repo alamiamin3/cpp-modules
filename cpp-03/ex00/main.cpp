@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:32:12 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/23 21:01:05 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:18:02 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 int main()
 {
+    ClapTrap c;
+    ClapTrap d("foo");
     ClapTrap a("bob");
     ClapTrap b(a);
-    b.attack("w9");
+    c = d;
+    c.attack("bob");
+    b.attack("jim");
     b.takeDamage(3);
     b.beRepaired(3);
 }

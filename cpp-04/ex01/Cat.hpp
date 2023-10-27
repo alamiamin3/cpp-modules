@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 12:47:50 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/21 13:19:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/27 17:11:10 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Cat : public Animal
         Cat();
         Cat(const Cat &obj);
         Cat &operator=(const Cat &obj);
-         ~Cat();
+        ~Cat();
         void makeSound() const;
         const std::string &getType() const;
 };

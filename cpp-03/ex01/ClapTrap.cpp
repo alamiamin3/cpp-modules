@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:41:03 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/18 17:08:11 by aalami           ###   ########.fr       */
+/*   Updated: 2023/10/25 14:37:13 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void    ClapTrap::attack(const std::string &target)
 {
     if (hit_points != 0 && energy_points != 0)
     {
-        std::cout<<"Clap Trap "<<name<<"attacks "<< target <<", causing "<< attack_damage<< " points of damage"<<std::endl;
+        std::cout<<"Clap Trap "<<name<<" attacks "<< target <<", causing "<< attack_damage<< " points of damage"<<std::endl;
         // energy_points --;
         if (--energy_points == 0)
             energy_points = 0;
