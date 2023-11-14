@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/21 17:59:35 by aalami            #+#    #+#             */
-/*   Updated: 2023/10/20 14:10:31 by aalami           ###   ########.fr       */
+/*   Created: 2023/11/13 17:05:47 by aalami            #+#    #+#             */
+/*   Updated: 2023/11/13 17:05:47 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_HPP
-#define HUMANA_HPP
+#include "Bureaucrat.hpp"
 
-#include <iostream>
-#include "Weapon.hpp"
-class HumanA
+int main()
 {
-private:
-    Weapon &weapon;
-    std::string name;
-public:
-    void    attack();
-    HumanA(const std::string &name, Weapon& w);
-    // ~HumanA();
-};
-
-
-#endif
+    try
+    {
+        Bureaucrat b1("b1", 1);
+        Bureaucrat b2("b2", 150);
+        Bureaucrat b3("b3", 22);
+        std::cout << b3 << std::endl;
+        b1.incrementGrade();
+        b2.decrementGrade();
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr <<e.what() << '\n';
+    }
+    
+}

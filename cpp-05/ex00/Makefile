@@ -1,5 +1,5 @@
-NAME = animal
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
+NAME = Bureaucrat
+SRC = main.cpp Bureaucrat.cpp 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -7,7 +7,7 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
-%.o: %.cpp Cat.hpp Animal.hpp Dog.hpp Brain.hpp
+%.o: %.cpp Bureaucrat.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ)
