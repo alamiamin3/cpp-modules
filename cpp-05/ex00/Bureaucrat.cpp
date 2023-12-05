@@ -39,12 +39,12 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
     grade = obj.grade;
     return (*this);
 }
-const std::string &Bureaucrat::getName()
+const std::string &Bureaucrat::getName() const
 {
     return (name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return(grade);
 }

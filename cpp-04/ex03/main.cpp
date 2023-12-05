@@ -18,14 +18,14 @@
 #include "ICharacter.hpp"
 #include "Character.hpp"
 
-void a()
-{
+// void a()
+// {
     
-    system("leaks materia");
-}
+//     system("leaks materia");
+// }
 int main()
 {
-    atexit(a);
+    // atexit(a);
     // AMateria *unequip;
     IMateriaSource* src = new MateriaSource();
     AMateria *p = new Ice();
