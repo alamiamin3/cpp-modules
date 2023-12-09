@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 17:40:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/05 18:15:51 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/06 16:09:50 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/06 16:09:52 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : target(target)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : target(target)
 {
-    to_sign = 72;
-    to_exc = 45;
+    to_sign = 25;
+    to_exc = 5;
     is_signed = false;
-    name = "Robotomy Request Form";
 }
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
 {
     *this = obj;
 }
-RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
     if (this == &obj)
         return (*this);
@@ -34,17 +33,13 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
     target = obj.target;
     return (*this);
 }
-void RobotomyRequestForm::execute(const Bureaucrat &executor) const
+void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
     
     if (is_signed && executor.getGrade() <= to_exc)
     {
-        std::cout<<"Zzzzzzzzzzzz"<<std::endl;
-        std::cout<<target<<" has been robotomized successfully 50%% of all time"<<std::endl;
+        std::cout<<target<<" has been pardoned by Zaphod Beeblebrox"<<std::endl;
     }
     else
-    {
-        std::cout<<"The robotomy failed"<<std::endl;
         throw GradeTooLowException();
-    }
 }
