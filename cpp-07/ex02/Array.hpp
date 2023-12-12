@@ -1,27 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 21:23:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/12 14:26:59 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/12 18:37:33 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/12 18:43:19 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
-#include<unistd.h>
-typedef struct t_Data
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
+
+#include <iostream>
+
+template <typename T>
+
+class Array
 {
-    int a;
-    char b;
-    float c;
-    std::string str;
-}Data;
-int main()
-{
-    Base *ptr = generate();
-    identify(ptr);
-    identify(*ptr);
-}
+private:
+    T *array;
+public:
+    Array()
+    {
+        array = new T();
+    }
+    Array(unsigned int n)
+    {
+        array = new T[n];
+    }
+    Array(const Array &obj)
+    {
+        
+    }
+    ~Array();
+};
+

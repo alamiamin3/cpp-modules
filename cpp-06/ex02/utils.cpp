@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:46:18 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/11 21:45:19 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:01:58 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,32 @@ void identify(Base *p)
 }
 void identify(Base &p)
 {
-    if (&p == NULL)
-        return;
     try
     {
         A &a_ref = dynamic_cast<A&>(p);
         std::cout<<"A"<<std::endl;
+        (void)a_ref;
     }
     catch(const std::exception& e)
     {
-        std::cerr << "can't be casted to the derived class object A" << std::endl;
+        try
+        {
+            B &b_ref = dynamic_cast<B&>(p);
+            std::cout<<"B"<<std::endl;
+            (void)b_ref;
+        }
+        catch(const std::exception& e)
+        {
+            try
+            {
+                C &c_ref = dynamic_cast<C&>(p);
+                std::cout<<"C"<<std::endl;
+                (void)c_ref;
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << "can't be casted "<< std::endl;
+            }
+        }
     }
-    try
-    {
-        B &b_ref = dynamic_cast<B&>(p);
-        std::cout<<"B"<<std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "can't be casted to the derived class object B"<< std::endl;
-    }
-    try
-    {
-        C &c_ref = dynamic_cast<C&>(p);
-        std::cout<<"C"<<std::endl;
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << "can't be casted to the derived class object C"<< std::endl;
-    }
-    
 }

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/11 21:23:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/12 14:26:59 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/12 16:28:04 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/12 18:12:31 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils.hpp"
-#include<unistd.h>
-typedef struct t_Data
+#ifndef ITER_HPP
+#define ITER_HPP
+
+#include <iostream>
+
+template <typename T, typename Y>
+
+void iter(T *arr, int length, Y func)
 {
-    int a;
-    char b;
-    float c;
-    std::string str;
-}Data;
-int main()
-{
-    Base *ptr = generate();
-    identify(ptr);
-    identify(*ptr);
+        int i = -1;
+        while (++i < length)
+            func(arr[i]);
+    
 }
+#endif
