@@ -6,31 +6,26 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:05:45 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/05 18:08:15 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 21:52:30 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : target(target)
+//fixed
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : target(target) , Form("Presidential Pardon Form", 25, 5)
 {
-    to_sign = 25;
-    to_exc = 5;
     is_signed = false;
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : target(obj.target), Form(obj.name, obj.to_sign, obj.to_exc)
 {
-    *this = obj;
+    
+    is_signed = obj.is_signed;
 }
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
     if (this == &obj)
         return (*this);
-    name  = obj.name;
     is_signed = obj.is_signed;
-    to_sign = obj.to_sign;
-    to_exc = obj.to_exc;
-    target = obj.target;
     return (*this);
 }
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const

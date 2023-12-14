@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:54:34 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/05 17:36:49 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:21:48 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : target
     to_sign = 145;
     to_exc = 137;
     is_signed = false;
+    name = "Shrubbery Creation Form";
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj)
 {
@@ -39,7 +40,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
     
     if (is_signed && executor.getGrade() <= to_exc)
     {
-        std::string fn = target + "__shrubbery";
+        std::string fn = target + "_shrubbery";
         std::ofstream out;
         out.open(fn.c_str());
         if (!out.is_open())
@@ -63,6 +64,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
         out<<"            .     '      000      '    .     ."<<std::endl;
         out<<"       .         .   .   000     .        .       ."<<std::endl;
         out<<".. .. ..................O000O........................ ...... ..."<<std::endl;
+        std::cout<<"A file named "<<fn<<" has been created"<<std::endl;
     }
     else
         throw GradeTooLowException();

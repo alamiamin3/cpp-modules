@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:50 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/06 16:09:52 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:49:22 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : targ
     to_sign = 25;
     to_exc = 5;
     is_signed = false;
+    name = "Presidential Pardon Form";
 }
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
 {

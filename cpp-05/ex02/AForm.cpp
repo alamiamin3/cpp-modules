@@ -6,13 +6,16 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:59:30 by aalami            #+#    #+#             */
-/*   Updated: 2023/11/22 18:59:30 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 20:59:07 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-Form::Form(){}
+Form::Form(): name("form"), to_sign(1), to_exc(1)
+{
+    is_signed = false;
+}
 Form::~Form(){}
 Form::Form(const std::string &name, const int to_sign, const int to_exec) : name(name), to_sign(to_sign), to_exc(to_exec)
 {
@@ -22,18 +25,15 @@ Form::Form(const std::string &name, const int to_sign, const int to_exec) : name
     else if (to_sign > 150 || to_exc > 150)
         throw GradeTooLowException();
 }
-Form::Form(const Form &obj)
+Form::Form(const Form &obj) : name(obj.name), to_sign(obj.to_sign), to_exc(obj.to_exc)
 {
-    *this = obj;
+    is_signed = obj.is_signed;
 }
 Form &Form::operator=(const Form &obj)
 {
     if (this == &obj)
         return (*this);
-    name  = obj.name;
     is_signed = obj.is_signed;
-    to_sign = obj.to_sign;
-    to_exc = obj.to_exc;
     return(*this);
 }
 const std::string &Form::getName() const

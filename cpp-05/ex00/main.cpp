@@ -16,7 +16,7 @@ int main()
 {
     try
     {
-        Bureaucrat b1("b1", 1);
+        Bureaucrat b1("b1", 150);
         Bureaucrat b2("b2", 150);
         Bureaucrat b3("b3", 22);
         std::cout << b3 << std::endl;
@@ -27,5 +27,4 @@ int main()
     {
         std::cerr <<e.what() << '\n';
     }
-    
 }

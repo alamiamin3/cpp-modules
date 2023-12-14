@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:28:33 by aalami            #+#    #+#             */
-/*   Updated: 2023/11/14 20:28:33 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 19:02:04 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Bureaucrat;
 class Form
 {
 private:
-    std::string name;
+    const std::string name;
     bool is_signed;
-    int to_sign;
-    int to_exc;
+    const int to_sign;
+    const int to_exc;
 public:
     class GradeTooHighException : public std::exception
     {

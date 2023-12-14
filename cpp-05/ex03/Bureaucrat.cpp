@@ -6,15 +6,16 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:59 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/06 16:09:00 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 21:36:18 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("bureaucrat")
 {
+    grade = 1;
 }
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
@@ -28,15 +29,14 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
 Bureaucrat::~Bureaucrat()
 {
 }
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name)
 {
-    *this = obj;
+    grade = obj.grade;
 }
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     if (this == &obj)
         return(*this);
-    name = obj.name;
     grade = obj.grade;
     return (*this);
 }
@@ -67,13 +67,18 @@ std::ostream &operator<<(std::ostream &cout,  Bureaucrat &obj)
     cout << obj.getName() << ", bureaucrat grade "<<obj.getGrade();
     return (cout);
 }
-void Bureaucrat::signForm(const Form &obj)
+void Bureaucrat::signForm(Form &obj)
 {
-    if (obj.getState())
+    try
+    {
+        obj.beSigned(*this);
         std::cout<<name<<" signed "<<obj.getName()<<std::endl;
-    else
-        std::cout<<name<<" couldn't sign "<<obj.getName()<< " because "<<std::endl;
-
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr<<name<<" couldn't sign "<<obj.getName()<< " because "<< e.what()<<std::endl;
+    }
+    
 }
 void Bureaucrat::executeForm(Form const & form)
 {

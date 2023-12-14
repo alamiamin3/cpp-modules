@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 19:46:38 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/07 12:03:58 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:48:16 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ Form *Intern::makeForm(const std::string &form, const std::string &target)
     while (i < 3 && FormNameTab[i].compare(form))
         i++;
     if (i == 3)
-        return 0;
+    {
+        std::cout<<"Unknown Form"<<std::endl;
+        return 0; 
+    }
     else
         return (forms[i]);
 

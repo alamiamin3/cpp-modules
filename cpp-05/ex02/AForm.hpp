@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:57:13 by aalami            #+#    #+#             */
-/*   Updated: 2023/11/22 18:57:13 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 21:01:50 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ class Bureaucrat;
 class Form
 {
 protected:
-    std::string name;
+    const std::string name;
     bool is_signed;
-    int to_sign;
-    int to_exc;
+    const int to_sign;
+    const int to_exc;
 public:
     class GradeTooHighException : public std::exception
     {
@@ -42,7 +42,7 @@ public:
     };
     Form();
     Form(const std::string &name, const int to_sign, const int to_exec);
-    ~Form();
+    virtual ~Form();
     Form(const Form &obj);
     Form &operator=(const Form &obj);
     const std::string &getName() const;

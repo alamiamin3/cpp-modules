@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:37:33 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/12 18:43:19 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/13 18:03:48 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,49 @@ class Array
 {
 private:
     T *array;
+    unsigned int len;
 public:
     Array()
     {
-        array = new T();
+        array = NULL;
+        len = 0;
     }
     Array(unsigned int n)
     {
-        array = new T[n];
+        len = n;
+        array = new T[len];
     }
-    Array(const Array &obj)
+    Array(const Array &obj) : array(NULL), len(0)
     {
-        
+        *this = obj;
     }
-    ~Array();
+    Array &operator=(const Array &obj)
+    {
+        if (this == &obj)
+            return (*this);
+        if (array)
+        {
+            std::cout<<len<<std::endl;
+            delete [] array;
+        }
+        len = obj.len;
+        array = new T[len];
+        for (unsigned int i = 0; i < len; i++)
+            array[i] = obj.array[i];
+        return (*this);
+    }
+    T &operator[](unsigned int index)
+    {
+        if (index >= len)
+            throw std::out_of_range("Index out of range");
+        return(array[index]);
+    }
+    unsigned int size() const
+    {
+        return(len);
+    }
+    ~Array(){
+        delete [] array;
+    }
 };
-
+#endif

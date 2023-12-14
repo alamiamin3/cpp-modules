@@ -10,7 +10,7 @@ $(NAME) : $(OBJ)
 %.o: %.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Inten.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJ) *_shrubbery
 fclean: clean
 	rm -f $(NAME)
 re: fclean all

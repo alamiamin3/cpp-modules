@@ -12,8 +12,9 @@
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("bureaucrat")
 {
+    grade = 1;
 }
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade)
 {
@@ -27,15 +28,14 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(g
 Bureaucrat::~Bureaucrat()
 {
 }
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+Bureaucrat::Bureaucrat(const Bureaucrat &obj) : name(obj.name)
 {
-    *this = obj;
+    grade = obj.grade;
 }
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
     if (this == &obj)
         return(*this);
-    name = obj.name;
     grade = obj.grade;
     return (*this);
 }

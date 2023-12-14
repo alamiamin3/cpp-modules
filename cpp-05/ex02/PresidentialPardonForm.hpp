@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 18:03:01 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/05 18:05:28 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 21:52:52 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class PresidentialPardonForm : public Form
 {
 private:
-    std::string target;
+    const std::string target;
 public:
     PresidentialPardonForm(const std::string &target);
     ~PresidentialPardonForm(){}

@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:11:25 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/06 16:11:28 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/14 17:49:44 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target) : target
     to_sign = 145;
     to_exc = 137;
     is_signed = false;
+    name = "Shrubbery Creation Form";
 }
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj)
 {
