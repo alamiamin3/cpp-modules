@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/02 17:42:43 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 17:42:13 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 22:40:47 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,19 @@ int main()
     try
     {
         Bureaucrat a("a", 4);
-        Form *form_1 = new RobotomyRequestForm("home");
+        // Form *form_1 = new RobotomyRequestForm("home");
         Form *form_2 = new ShrubberyCreationForm("office");
         Form *form_3 = new PresidentialPardonForm("office");
         {
             std::cout<<"-------------------RobotomyRequestForm-------------------"<<std::endl;
-            form_1->beSigned(a);
-            a.signForm(*form_1);
-            a.executeForm(*form_1);
-            delete form_1;
+            form_3->beSigned(a);
+            a.signForm(*form_3);
+            Form *form_4 = new PresidentialPardonForm("1337");
+            *form_4 = *form_3;
+            std::cout<<*form_4<<std::endl;
+            a.executeForm(*form_4);
+            delete form_3;
+            exit (0);
             std::cout<<std::endl;
         }
         {

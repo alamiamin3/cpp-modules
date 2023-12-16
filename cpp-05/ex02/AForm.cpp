@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:59:30 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 20:59:07 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 22:26:39 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ Form::Form(): name("form"), to_sign(1), to_exc(1)
     is_signed = false;
 }
 Form::~Form(){}
+const char *Form::GradeTooHighException::what() const throw()
+{
+    return ("Form can't be signed (or executed): Grade too high");
+}
+const char *Form::GradeTooLowException::what() const throw()
+{
+    return ("Form can't be signed (or executed): Grade too low");
+}
+const char *Form::FormNotSigned::what() const throw()
+{
+    return ("Form not signed");
+}
 Form::Form(const std::string &name, const int to_sign, const int to_exec) : name(name), to_sign(to_sign), to_exc(to_exec)
 {
     is_signed = false;

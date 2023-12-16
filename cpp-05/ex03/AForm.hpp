@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:04:22 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 21:02:04 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 22:09:53 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Bureaucrat;
 class Form
 {
-protected:
+private:
     const std::string name;
     bool is_signed;
     const int to_sign;
@@ -27,18 +27,17 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Form can't be signed : Grade too high");
-        }
+        const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Form can't be signed : Grade too low");
-        }
+        const char *what() const throw();
+    };
+    class FormNotSigned : public std::exception
+    {
+    public:
+        const char *what() const throw();
     };
     Form();
     Form(const std::string &name, const int to_sign, const int to_exec);

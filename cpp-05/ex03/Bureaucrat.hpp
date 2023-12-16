@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:08:37 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 21:24:48 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:51:31 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,12 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Grade too high");
-        }
+        const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Grade too low");
-        }
+        const char *what() const throw();
     };
     Bureaucrat();
     Bureaucrat(const std::string &name, int grade);

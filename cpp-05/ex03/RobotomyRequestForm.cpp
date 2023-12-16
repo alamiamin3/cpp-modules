@@ -6,38 +6,31 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:10:58 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/06 16:11:00 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 22:19:13 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : target(target)
+RobotomyRequestForm::RobotomyRequestForm() : Form("Robotomy Request Form", 72, 45), target("target")
 {
-    to_sign = 72;
-    to_exc = 45;
-    is_signed = false;
-    name = "Robotomy Request Form";
 }
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
+RobotomyRequestForm::~RobotomyRequestForm(){}
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target) : Form("Robotomy Request Form", 72, 45), target(target)
 {
-    *this = obj;
+}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj) : Form(obj.getName(), obj.getGradeToSign(), obj.getGradeToExec()), target(obj.target)
+{
 }
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
 {
-    if (this == &obj)
-        return (*this);
-    name  = obj.name;
-    is_signed = obj.is_signed;
-    to_sign = obj.to_sign;
-    to_exc = obj.to_exc;
-    target = obj.target;
+    (void)obj;
     return (*this);
 }
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
     
-    if (is_signed && executor.getGrade() <= to_exc)
+    if (this->getState() && executor.getGrade() <= this->getState())
     {
         std::cout<<"Zzzzzzzzzzzz"<<std::endl;
         std::cout<<target<<" has been robotomized successfully 50%% of all time"<<std::endl;
@@ -45,6 +38,8 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
     else
     {
         std::cout<<"The robotomy failed"<<std::endl;
+        if (!this->getState())
+            throw FormNotSigned();
         throw GradeTooLowException();
     }
 }

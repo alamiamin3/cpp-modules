@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:28:33 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 19:02:04 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/15 15:54:15 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,12 @@ public:
     class GradeTooHighException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Form can't be signed : Grade too high");
-        }
+        const char *what() const throw();
     };
     class GradeTooLowException : public std::exception
     {
     public:
-        const char *what() const throw()
-        {
-            return ("Form can't be signed : Grade too low");
-        }
+        const char *what() const throw();
     };
     Form();
     Form(const std::string &name, const int to_sign, const int to_exec);

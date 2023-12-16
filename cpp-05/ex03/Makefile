@@ -7,7 +7,7 @@ OBJ = $(SRC:.cpp=.o)
 all : $(NAME)
 $(NAME) : $(OBJ)
 	$(CC) $(OBJ) $(CFLAGS) -o $(NAME)
-%.o: %.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Inten.hpp
+%.o: %.cpp Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp Intern.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 clean:
 	rm -f $(OBJ) *_shrubbery

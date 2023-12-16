@@ -6,41 +6,38 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 16:09:50 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/14 17:49:22 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 22:19:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : target(target)
+PresidentialPardonForm::PresidentialPardonForm() : Form("Presidential Pardon Form", 25, 5), target("target") 
 {
-    to_sign = 25;
-    to_exc = 5;
-    is_signed = false;
-    name = "Presidential Pardon Form";
 }
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj)
+PresidentialPardonForm::~PresidentialPardonForm(){}
+PresidentialPardonForm::PresidentialPardonForm(const std::string &target) : Form("Presidential Pardon Form", 25, 5), target(target) 
 {
-    *this = obj;
+}
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) : Form(obj.getName(), obj.getGradeToSign(), obj.getGradeToExec()), target(obj.target)
+{
 }
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &obj)
 {
-    if (this == &obj)
-        return (*this);
-    name  = obj.name;
-    is_signed = obj.is_signed;
-    to_sign = obj.to_sign;
-    to_exc = obj.to_exc;
-    target = obj.target;
+    (void)obj;
     return (*this);
 }
+
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
     
-    if (is_signed && executor.getGrade() <= to_exc)
+    if (this->getState() && executor.getGrade() <= this->getGradeToExec())
     {
         std::cout<<target<<" has been pardoned by Zaphod Beeblebrox"<<std::endl;
     }
     else
+    {
+        if (!this->getState())
+            throw FormNotSigned();
         throw GradeTooLowException();
+    }
 }

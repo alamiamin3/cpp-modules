@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 19:36:38 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/16 21:02:52 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/16 23:31:13 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/16 23:37:00 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-#define INTERN_HPP
-
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-
-class Intern
+#ifndef EASYFIND_HPP
+#define EASYFIND_HPP
+#include <vector>
+#include <algorithm>
+#include <iostream>
+template <typename T>
+void easyfind(T &container, int nbr)
 {
-private:
-    Form *forms[4];
-public:
-    Intern();
-    ~Intern();
-    Intern(const Intern &obj);
-    Intern &operator=(const Intern &obj);
-    Form *makeForm(const std::string &form, const std::string &target);
-};
-
-
+    
+}
 #endif

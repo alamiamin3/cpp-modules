@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:31:46 by aalami            #+#    #+#             */
-/*   Updated: 2023/11/28 18:31:46 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/16 15:49:17 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@
 class ShrubberyCreationForm : public Form
 {
 private:
-    std::string target;
+    const std::string target;
 public:
+    ShrubberyCreationForm();
     ShrubberyCreationForm(const std::string &target);
-    ~ShrubberyCreationForm(){}
+    ~ShrubberyCreationForm();
     ShrubberyCreationForm(const ShrubberyCreationForm &obj);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &obj);
     void execute(const Bureaucrat &executor) const;
