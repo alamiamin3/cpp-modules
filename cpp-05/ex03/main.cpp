@@ -6,18 +6,14 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 10:31:12 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/16 22:21:27 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/17 19:16:43 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-void a()
-{
-    system("leaks Intern");
-}
+
 int main()
 {
-    // atexit(a);
     try
     {
         Intern someRandomIntern;
@@ -38,8 +34,6 @@ int main()
             a.signForm(*form_1);
             a.executeForm(*form_1);
         }
-        
-        
     }
     catch(const std::exception& e)
     {

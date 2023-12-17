@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:54:34 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/16 22:35:34 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/17 14:44:32 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,4 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
         throw GradeTooLowException();
     }
 }
+
