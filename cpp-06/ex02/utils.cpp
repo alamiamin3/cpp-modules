@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 18:46:18 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/12 14:01:58 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/19 21:08:31 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void identify(Base *p)
         std::cout<<"C"<<std::endl;
     else
         std::cout<<"error"<<std::endl;
+    
 }
 void identify(Base &p)
 {
@@ -65,7 +66,7 @@ void identify(Base &p)
             }
             catch(const std::exception& e)
             {
-                std::cerr << "can't be casted "<< std::endl;
+                std::cerr << e.what()<< " : [can't be casted] "<< std::endl;
             }
         }
     }

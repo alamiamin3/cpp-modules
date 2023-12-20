@@ -7,7 +7,7 @@ int main(int, char**)
     Array<std::string> strings(MAX_VAL);
 
     std::string *str_ptr = new std::string[MAX_VAL];
-
+    
     for (int i = 0; i <  MAX_VAL ; i++)
     {
         str_ptr[i] = "HELLO";

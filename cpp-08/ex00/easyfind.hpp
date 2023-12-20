@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 23:31:13 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/17 18:13:04 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/20 17:31:48 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <list>
 #include <algorithm>
 #include <iostream>
+#include <stack>
+#include <deque>
 
 class NumberNotFound : public std::exception
 {
@@ -24,12 +26,12 @@ class NumberNotFound : public std::exception
         return ("can't find this number");
     }
 };
-template < template <typename, typename ...> class Container , typename T, typename... Arg>
-void easyfind(Container <T, Arg...> &Container, int nbr)
+template < typename T>
+void easyfind(T &container, int nbr)
 {
-    typename Container<T>::iterator a;
-     a =  std::find(Container.begin(), Container.end(), nbr);
-     if (a == Container.end())
+    typename T::iterator a;
+     a =  std::find(container.begin(), container.end(), nbr);
+     if (a == container.end())
         throw NumberNotFound();
     else
         std::cout<<*a<<" found"<<std::endl;

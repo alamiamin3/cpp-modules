@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:37:33 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/13 18:03:48 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/19 23:48:40 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ public:
     }
     T &operator[](unsigned int index)
     {
+        printf("666\n");
         if (index >= len)
             throw std::out_of_range("Index out of range");
         return(array[index]);

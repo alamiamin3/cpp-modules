@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:02:49 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/09 18:50:04 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/19 15:52:12 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,15 +136,15 @@ void ScalarConverter::convert(const std::string &param)
         toFloat = atof(param.c_str());
         ConvertFromFloat(toFloat);
     }
-    else if (is_char)
-    {
-        toChar = param[0];
-        ConvertFromChar(toChar);
-    }
     else if (is_int)
     {
         toInt = atol(param.c_str());
         ConvertFromInt(toInt);
+    }
+    else if (is_char)
+    {
+        toChar = param[0];
+        ConvertFromChar(toChar);
     }
     else
     {
@@ -152,6 +152,5 @@ void ScalarConverter::convert(const std::string &param)
         std::cout << "int: impossible"<<std::endl;
         std::cout << "float: impossible"<<std::endl;
         std::cout << "double: impossible"<<std::endl;
-        return ;
     }
 }

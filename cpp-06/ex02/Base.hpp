@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:27 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/11 21:27:25 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/19 22:05:11 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #define BASE_HPP
 #include <iostream>
 class Base
-{
+{   
 public:
-    virtual ~Base(){}
+    virtual ~Base();
 };
 
 #endif

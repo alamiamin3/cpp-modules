@@ -5,17 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 17:43:40 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/19 22:25:55 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/20 22:18:56 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/20 22:19:45 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
-#include <iomanip> 
-int main(int argc, char **argv)
+#include "MutantStack.hpp"
+
+int main()
 {
-    if (argc != 2)
-        std::cout<<"Invalid Number of arguments"<<std::endl;
-    else
-        ScalarConverter::convert(argv[1]);
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << mstack.size() << std::endl;
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    //[...]
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+    std::cout << *it << std::endl;
+    ++it;
+    }
+    std::stack<int> s(mstack);
+    return 0;
 }
