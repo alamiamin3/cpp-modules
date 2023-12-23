@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 18:50:00 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/20 19:44:04 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/22 00:33:40 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,5 @@ int Span::shortestSpan()
         std::cerr << e.what() << '\n';
     }
     
-    return (ret);
+    return (abs(ret));
 }
