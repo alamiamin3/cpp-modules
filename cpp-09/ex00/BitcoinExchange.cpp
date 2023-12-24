@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:51:06 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/23 04:50:54 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/24 02:51:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 bool isValidInput(std::ifstream &input, char *arg)
 {
     input.open(arg);
+    if (!input.is_open())
+        throw "file can't be opened";
     std::string buff;
     getline(input, buff);
     bool ret = true;
@@ -23,19 +25,32 @@ bool isValidInput(std::ifstream &input, char *arg)
     input.close();
     return ret;
 }
-
+bool isValidDate(std::string &date, bool flag)
+{
+    size_t fpos = date.find_first_not_of(" \t");
+    for(size_t i = 0; i < date.size(); i++)
+    {
+        if((!isdigit(date[i]) && flag)  || (!flag && fpos != 0))
+            return (false);
+    }
+    return (true);
+}
 bool isValidYear(std::stringstream &stream, std::string &key)
 {
+    if (key.size() != 4)
+        return false;
     long year = atol(key.c_str());
-    if (stream.eof() || year < 2009)
+    if (!isValidDate(key, 1) || stream.eof() || year < 2009)
         return false;
     return true;
 }
 
 bool isValidMounth(std::stringstream &stream, std::string &key)
 {
+    if (key.size() != 2)
+        return false;
     long mounth = atol(key.c_str());
-    if (stream.eof() || (mounth < 1 || mounth > 12))
+    if (!isValidDate(key, 1) || stream.eof() || (mounth < 1 || mounth > 12))
         return false;
     return true;
 }
@@ -48,9 +63,13 @@ void trimString(std::string &str)
 }
 bool isValidDay(std::string &key, bool isLeap, int isLong)
 {
+    size_t first = key.find_first_not_of(" \t");
+    size_t space = key.find(' ');
+    if (key.size() != 3 || first != 0 || space == std::string::npos || space != 2)
+        return false;
     size_t pos = key.find(" ");
     long day = atol(key.c_str());
-    if (pos == std::string::npos || (day < 1 || day > 31))
+    if (!isValidDate(key, 0) || pos == std::string::npos || (day < 1 || day > 31))
         return false;
     else if((!isLeap && isLong == -1 && day == 29) || (isLong == -1 && day > 29))
         return false;
@@ -82,7 +101,9 @@ bool isValidKey(std::string &key)
     std::string tmp;
     bool isLeap;
     int isLong;
-
+    
+    if (key < "2009-01-02")
+        return false;
     int i = 0;
     while (i < 3)
     {
@@ -124,9 +145,14 @@ bool isValidFloat( std::string &value)
 }
 bool isValidNumber(std::string &value)
 {
-    size_t first = value.find_first_not_of(" ");
-    if (!first)
+    size_t first = value.find_first_not_of(" \t");
+    size_t last = value.find_last_not_of(" \t");
+    if (!first || (value[1] != '-' &&!isdigit(value[1]))
+        || last != value.size() - 1)
+    {
+        value = "input value not valid"; 
         return false;
+    }
     trimString(value);
     for(unsigned int i = 0; i < value.size(); i++)
     {
@@ -153,14 +179,15 @@ bool isValidValue( std::string &value)
 {
     return (isValidNumber(value));
 }
-std::multimap<std::string, std::string> getInput(std::ifstream &input, char *arg)
+void getInput(std::ifstream &input, char *arg)
 {
-    std::multimap<std::string, std::string> inputMap;
-    
+    std::map<std::string, double> dbMap = getDataBaseMap();
     std::string line;
     std::string key;
     std::string value;
     input.open(arg);
+    if (!input.is_open())
+        throw "file can't be opened";
     getline(input, line);
     while (getline(input, line))
     {
@@ -171,67 +198,50 @@ std::multimap<std::string, std::string> getInput(std::ifstream &input, char *arg
                 value = "Error: bad input";
             else if (!isValidNumber(value))
                 value = "Error: " + value;
-            trimString(key);    
-            inputMap.insert(std::make_pair(key, value));
-            std::cout<<key.size()<<std::endl;
+            trimString(key);
         }
         else
-            inputMap.insert(std::make_pair(key, "Error: bad input"));
-        
+            value = "Error: Bad input";
+        getThePrice(dbMap, key, value);
     }
     input.close();
-    std::cout<<line<<std::endl;
-    return (inputMap);
 }
-std::map<std::string, unsigned int> getDataBaseMap()
+
+std::map<std::string, double> getDataBaseMap()
 {
     std::ifstream input;
     std::string line;
     std::string key;
     std::string value;
-    std::map<std::string, unsigned int> myMap;
+    std::map<std::string, double> myMap;
     input.open("data.csv");
+    if (!input.is_open())
+        throw "Error opening database";
     getline(input, line);
     while(getline(input, line))
     {
         std::stringstream tmp(line);
         if (getline(tmp, key, ',') && getline(tmp, value))
-            myMap[key] = static_cast<unsigned int>(atol(value.c_str()));
+            myMap[key] = atof(value.c_str());
         else
-        {
-            std::cout<<"Database modified"<<std::endl;
-            exit(1);
-        }
-        std::cout<<key<<"  "<<value<<std::endl; 
+            throw "Database updated";
     }
     return myMap;
 }
-void getThePrice(std::multimap<std::string, std::string> inputMap, std::ifstream &input, char *arg)
+
+void getThePrice(std::map<std::string, double>  &dbMap, std::string &key, std::string &value)
 {
-    std::map<std::string, unsigned int> dbMap = getDataBaseMap();
-    mmap_it mmapIt;
-    map_it mapIt;
-    input.open(arg);
-    std::string line;
-    std::string key;
-    size_t pos;
-    unsigned int price;
-    getline(input, line);
-    while(getline(input, line))
+    map_it mapIt= dbMap.lower_bound(key);
+    if (!value.compare("Error: Bad input"))
+        std::cout<<value<<" => "<<key;
+    else if (value.find("Error") != std::string::npos)
+        std::cout<<value;
+    else
     {
-        std::stringstream tmp(line);
-        if (getline(tmp,key,'|'))
-        {
-            trimString(key);
-            mmapIt = inputMap.find(key);
-            mapIt = dbMap.lower_bound(key);
-            if (mmapIt->second.find("Error") != std::string::npos)
-            {
-                std::cout<<mmapIt->first<<" => "<<mmapIt->second<<" = ";
-                if (mapIt != dbMap.end() && mapIt->first.compare())
-                    price = mapIt->second * atol(mmapIt->second.c_str());
-                std::cout<<price<<std::endl;
-            }
-        }
+        std::cout<<key<<" => ";
+        if (mapIt->first.compare(key))
+            mapIt--;
+        std::cout<<value<<" = "<<mapIt->second * atof(value.c_str());
     }
+    std::cout<<std::endl;
 }

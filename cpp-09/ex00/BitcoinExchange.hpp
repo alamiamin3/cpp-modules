@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:51:15 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/23 04:34:35 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/24 01:15:34 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 #include <sstream>
 #include <map>
 
-typedef typename std::multimap<std::string,std::string>::iterator mmap_it;
-typedef typename std::map<std::string,unsigned int>::iterator map_it;
-std::multimap<std::string, std::string> getInput(std::ifstream &input, char *arg);
+typedef std::multimap<std::string,std::string>::iterator mmap_it;
+typedef std::map<std::string,double>::iterator map_it;
+void getInput(std::ifstream &input, char *arg);
 bool isValidInput(std::ifstream &input, char *arg);
 bool isValidKey(const std::string &key);
-std::map<std::string, unsigned int> getDataBaseMap();
-void getThePrice(std::multimap<std::string, std::string> inputMap, std::ifstream &input, char *arg);
+std::map<std::string, double> getDataBaseMap();
+void getThePrice(std::map<std::string, double>  &dbMap, std::string &key, std::string &value);
 #endif
