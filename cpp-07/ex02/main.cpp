@@ -2,10 +2,9 @@
 #include "Array.hpp"
 
 #define MAX_VAL 5
-int main(int, char**)
+int main()
 {
     Array<std::string> strings(MAX_VAL);
-
     std::string *str_ptr = new std::string[MAX_VAL];
     
     for (int i = 0; i <  MAX_VAL ; i++)

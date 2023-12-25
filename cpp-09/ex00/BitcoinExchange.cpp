@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 15:51:06 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/24 02:51:33 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/24 15:40:33 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ bool isValidInput(std::ifstream &input, char *arg)
     getline(input, buff);
     bool ret = true;
     if (buff.compare("date | value"))
+    {
+        std::cerr<<"Header invalid"<<std::endl;
         ret = false;
+    }
     input.close();
     return ret;
 }

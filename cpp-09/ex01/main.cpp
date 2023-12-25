@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 16:28:04 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/25 01:10:09 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/24 16:23:23 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/24 18:29:16 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#include "RPN.hpp"
 
-#include <iostream>
-
-template <typename T, typename Y>
-
-void iter(T *arr, int length, Y func)
+int main(int argc, char **argv)
 {
-        int i = -1;
-        while (++i < length)
-            func(arr[i]);
+    try
+    {
+        if (argc == 2)
+        {
+            std::stringstream stringStream(argv[1]);
+            getResult(stringStream);
+        }
+    }
+    catch (const char *err)
+    {
+        std::cerr<<err<<std::endl;
+    }
 }
-#endif

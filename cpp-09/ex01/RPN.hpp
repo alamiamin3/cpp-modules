@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/12 16:28:04 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/25 01:10:09 by aalami           ###   ########.fr       */
+/*   Created: 2023/12/24 16:01:09 by aalami            #+#    #+#             */
+/*   Updated: 2023/12/24 17:39:57 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef RPN_HPP
+#define RPN_HPP
 
 #include <iostream>
+#include <stack>
+#include <list>
+#include <sstream>
+typedef std::list<std::string>::iterator list_iterator;
+void getResult(std::stringstream &stringStream);
 
-template <typename T, typename Y>
-
-void iter(T *arr, int length, Y func)
-{
-        int i = -1;
-        while (++i < length)
-            func(arr[i]);
-}
 #endif
