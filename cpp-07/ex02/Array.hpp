@@ -6,7 +6,7 @@
 /*   By: aalami <aalami@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:37:33 by aalami            #+#    #+#             */
-/*   Updated: 2023/12/25 01:42:42 by aalami           ###   ########.fr       */
+/*   Updated: 2023/12/27 19:12:20 by aalami           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ private:
 public:
     Array() : len(0), array(NULL) 
     {}
-    Array(unsigned int n) : len(n), array(new T[len])
-    {}
-    Array(const Array &obj)
+    Array(unsigned int n)
+    {
+        len  = n;
+        array = new T[len];
+    }
+    Array(const Array &obj) : len(0) , array(NULL)
     {
         *this = obj;
     }
@@ -43,7 +46,7 @@ public:
             array[i] = obj.array[i];
         return (*this);
     }
-    T &operator[](unsigned int index)
+    T &operator[](unsigned int index) const
     {
         if (index >= len)
             throw std::out_of_range("Index out of range");
