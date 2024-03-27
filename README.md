@@ -1,6 +1,6 @@
 # C++ Modules
 
-This repository contains a set of modules from 1337(42 Network ) cursus for learning and practicing C++ programming language concepts. Each module focuses on a specific aspect of C++ programming, providing examples, exercises, and explanations to help you understand and master the topic.
+This repository contains a set of modules from 1337(42 Network ) cursus for learning and practicing C++ programming language concepts. Each module focuses on a specific aspect of C++ programming, providing examples, exercises, and explanations to help you understand the topic.
 
 ## Modules Overview
 
